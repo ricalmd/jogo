@@ -1,0 +1,33 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(44, 46, 40);
+}
+
+body {
+    background-color: rgb(155, 166, 173);
+}
+
+header {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: rgb(80, 76, 55);
+    text-align: center;
+    background-color: rgb(191, 198, 197);
+    padding: 2% 2% 2% 2%;
+    margin-bottom: 1%;
+}
+
+#repeat {
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+}
+
+#container{
+    display: flex;
+    justify-content: center;
+}
+
+th, td {
+    border: rgb(70, 87, 6) solid 1px;
+    width: 200px;
+}

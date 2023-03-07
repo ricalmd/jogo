@@ -1,0 +1,197 @@
+.blocs, .line{
+    stroke-width: 0.05px;
+    stroke: black;
+    width: 15px;
+    height: 15px;
+}
+
+#matrix{
+    height: 330px; 
+    width: 150px;
+}
+
+#choosingLevel, #endGame{
+    height: 100px;
+    width: 250px;
+    margin-left: 35px;
+}
+
+#choosingLevel, #endGame, #listScore{
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+#list{
+    padding: 10px 10px 10px 80px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: larger;
+    color: rgb(88, 66, 3);
+}
+
+#listScore{
+    background-color: rgb(178, 197, 94);
+    white-space: pre-line;
+    overflow-y: scroll;
+    height: 390px;
+    width: 300px;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+#nickName{
+    font-weight: bolder;
+}
+
+#endGame{
+    background-color: rgb(241, 219, 146);
+    height: 388px;
+    padding: 0 0 0 20px;
+    margin-left: 15px;
+}
+
+#choosingLevel{
+    background-color: sienna;
+    border-radius: 5%;
+    padding: 10px 0 0 10px;
+}
+
+#score{
+    width: 110px;
+    height: 150px;
+    color: black;
+    text-shadow:-1px 0 cornsilk, 0 1px cornsilk, 1px 0 cornsilk, 0 -1px cornsilk;
+    font-weight: bolder;
+    display: block;
+    border-radius: 5px;
+    margin-top: 4px;
+    margin-bottom: 5px;
+    background-color: rgb(222, 184, 135, 0.3);
+    padding-top: 10px;
+    padding-left: 10px;
+    white-space: pre-line;
+    font-size: 0.9rem;
+}
+
+#choosingLevel input{
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bolder;
+    font-size: medium;
+}
+
+#levelValue{
+    margin-bottom: 10px;
+}
+
+#submitLevel{
+    margin-right: 20px;
+}
+
+.displayImg{
+    max-width: 90px;
+    max-height: 30px;
+    width: auto;
+    height: auto;
+    display: none;
+}
+
+.blocs{
+    fill: lightgrey;
+}
+
+.sq{
+    stroke: black;
+}
+
+#choose, #displayScore{
+    width: 60px;
+    height: 39px;
+}
+
+#choose, #leftButton{
+    grid-column: 1;
+}
+
+#displayScore, #rightButton{
+    grid-column: 2;
+}
+
+#endButtons{
+    display: grid;
+    grid-template-columns: repeat(2, 59.5px);
+    column-gap: 1px;
+    row-gap: 1px;
+}
+
+#rotateButton{
+    margin-top: 10px;
+    background-color: yellow;
+}
+
+#leftButton, #rightButton{
+    background-color: orange;
+}
+
+#downButton{
+    background-color: yellowgreen;
+}
+
+#rotateButton, #leftButton, #rightButton, #downButton{
+    font-size: xx-large;
+    height: 45px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#startButton, #stopButton, #resetButton, #rotateButton, #downButton{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    width: 120px;
+}
+
+#buttons{
+    margin-left: 20px;
+}
+
+#game{
+    width: 325px;
+    border: 2px solid rgb(78, 74, 74);
+    border-radius: 3%;
+    display: grid;
+    grid-template-columns: 162px 163px;
+}
+
+body #game{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    color: black;
+    line-height: normal;
+    font-weight: normal;
+}
+
+#game h1{
+    margin-top: 10px;
+    font-weight: bolder;
+    line-height: normal;
+    font-size: 1.7rem;
+}
+
+#game button{
+    border-radius: 2px;
+    border: thin;
+}
+
+#choose, #displayScore, #startButton, #stopButton, #resetButton{
+    font-size: 0.9rem;
+}
+
+#titleContent{
+    height: 80px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.title{
+    display: inline-block;
+    -webkit-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
+    -o-transform: matrix(-1, 0, 0, 1, 0, 0);
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
