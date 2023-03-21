@@ -9,11 +9,11 @@ const Piece = {
             'aqua'
         ],
         limit : [0, 1, 2, 3],
-        arrayLeft : [-1],
+        leftArray : [-1],
         auxLeft : 0,
-        arrayRight : [4],
+        rightArray : [4],
         auxRight : 4,
-        rotate : [-9, 1, 11, 21, 0, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [-9, 1, 11, 21, 0, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 7,
         number : 0,
         path : [[0, 0], [15, 0], [30, 0], [45, 0]]
@@ -27,11 +27,11 @@ const Piece = {
             'aqua'
         ],
         limit : [30],
-        arrayLeft : [-1, 9, 19, 29],
+        leftArray : [-1, 9, 19, 29],
         auxLeft : 0,
-        arrayRight : [1, 11, 21, 31],
+        rightArray : [1, 11, 21, 31],
         auxRight : 1,
-        rotate : [9, 10, 11, 12, 0, 0, 0.1, 0.1, 2, 1, 0],
+        rotation : [9, 10, 11, 12, 0, 0, 0.1, 0.1, 2, 1, 0],
         random : 0,
         number : 7,
         path : []
@@ -45,11 +45,11 @@ const Piece = {
             'blue'
         ],
         limit : [0, 1, 12],
-        arrayLeft : [-1, 11],
+        leftArray : [-1, 11],
         auxLeft : 0,
-        arrayRight : [3, 13],
+        rightArray : [3, 13],
         auxRight : 3,
-        rotate : [-9, 1, 10, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [-9, 1, 10, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 8,
         number : 1,
         path : [[0, 0], [15, 0], [30, 0], [30, 15]]
@@ -63,11 +63,11 @@ const Piece = {
             'blue'
         ],
         limit : [10, 11, 12],
-        arrayLeft : [-1, 9],
+        leftArray : [-1, 9],
         auxLeft : 0,
-        arrayRight : [1, 13],
+        rightArray : [1, 13],
         auxRight : 13,
-        rotate : [1, 2, 11, 21, 0, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [1, 2, 11, 21, 0, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 10,
         number : 9,
         path : []
@@ -81,11 +81,11 @@ const Piece = {
             'blue'
         ],
         limit : [1, 20],
-        arrayLeft : [-1, 9, 19],
+        leftArray : [-1, 9, 19],
         auxLeft : 0,
-        arrayRight : [2, 11, 21],
+        rightArray : [2, 11, 21],
         auxRight : 2,
-        rotate : [9, 10, 11, 21, 0, 0, 0.1, 0.1, 0, 0, 0],
+        rotation : [9, 10, 11, 21, 0, 0, 0.1, 0.1, 0, 0, 0],
         random : 1,
         number : 10,
         path : []
@@ -99,11 +99,11 @@ const Piece = {
             'blue'
         ],
         limit : [19, 20],
-        arrayLeft : [-1, 9, 18],
+        leftArray : [-1, 9, 18],
         auxLeft : 19,
-        arrayRight : [1, 11, 21],
+        rightArray : [1, 11, 21],
         auxRight : 1,
-        rotate : [-1, 9, 10, 11, -1, 0.1, 0.1, 0.1, 1, 0, 0],
+        rotation : [-1, 9, 10, 11, -1, 0.1, 0.1, 0.1, 1, 0, 0],
         random : 9,
         number : 8,
         path : []
@@ -117,11 +117,11 @@ const Piece = {
             'orange'
         ],
         limit : [1, 2, 10],
-        arrayLeft : [-1, 9],
+        leftArray : [-1, 9],
         auxLeft : 0,
-        arrayRight : [3, 11],
+        rightArray : [3, 11],
         auxRight : 3,
-        rotate : [-10, -9, 1, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [-10, -9, 1, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 11,
         number : 2,
         path : [[0, 0], [0, 15], [15, 0], [30, 0]]
@@ -135,11 +135,11 @@ const Piece = {
             'orange'
         ],
         limit : [8, 9, 10],
-        arrayLeft : [-1, 7],
+        leftArray : [-1, 7],
         auxLeft : 8,
-        arrayRight : [1, 11],
+        rightArray : [1, 11],
         auxRight : 1,
-        rotate : [-1, 9, 19, 20, -2, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [-1, 9, 19, 20, -2, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 13,
         number : 12,
         path : []
@@ -153,11 +153,11 @@ const Piece = {
             'orange'
         ],
         limit : [20, 21],
-        arrayLeft : [-1, 9, 19],
+        leftArray : [-1, 9, 19],
         auxLeft : 0,
-        arrayRight : [1, 11, 22],
+        rightArray : [1, 11, 22],
         auxRight : 22,
-        rotate : [9, 10, 11, 19, 0, 0, 0.1, 0.1, 0, 0, 0],
+        rotation : [9, 10, 11, 19, 0, 0, 0.1, 0.1, 0, 0, 0],
         random : 2,
         number : 13,
         path : []
@@ -171,11 +171,11 @@ const Piece = {
             'orange'
         ],
         limit : [0, 21],
-        arrayLeft : [-1, 10, 19],
+        leftArray : [-1, 10, 19],
         auxLeft : 0,
-        arrayRight : [2, 12, 22],
+        rightArray : [2, 12, 22],
         auxRight : 2,
-        rotate : [2, 10, 11, 12, 0, 0.1, 0.1, 0.1, 2, 0, 0],
+        rotation : [2, 10, 11, 12, 0, 0.1, 0.1, 0.1, 2, 0, 0],
         random : 12,
         number : 11,
         path : []
@@ -189,11 +189,11 @@ const Piece = {
             'yellow'
         ],
         limit : [10, 11],
-        arrayLeft : [-1, 9],
+        leftArray : [-1, 9],
         auxLeft : 0,
-        arrayRight : [2, 12],
+        rightArray : [2, 12],
         auxRight : 2,
-        rotate : [],
+        rotation : [],
         random : 3,
         number : 3,
         path : [[0, 0], [0, 15], [15, 0], [15, 15]]
@@ -207,11 +207,11 @@ const Piece = {
             'yellowgreen'
         ],
         limit : [1, 9, 10],
-        arrayLeft : [-1, 8],
+        leftArray : [-1, 8],
         auxLeft : 9,
-        arrayRight : [2, 11],
+        rightArray : [2, 11],
         auxRight : 2,
-        rotate : [-11, -1, 0, 10, -1, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [-11, -1, 0, 10, -1, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 14,
         number : 4,
         path : [[0, 15], [15, 0], [15, 15], [30, 0]]
@@ -225,11 +225,11 @@ const Piece = {
             'yellowgreen'
         ],
         limit : [10, 21],
-        arrayLeft : [-1, 9, 20],
+        leftArray : [-1, 9, 20],
         auxLeft : 0,
-        arrayRight : [1, 12, 22],
+        rightArray : [1, 12, 22],
         auxRight : 12,
-        rotate : [11, 12, 20, 21, 0, 0.1, 0.1, 0.1, 2, 0, 0],
+        rotation : [11, 12, 20, 21, 0, 0.1, 0.1, 0.1, 2, 0, 0],
         random : 4,
         number : 14,
         path : []
@@ -243,11 +243,11 @@ const Piece = {
             'purple'
         ],
         limit : [0, 2, 11],
-        arrayLeft : [-1, 10],
+        leftArray : [-1, 10],
         auxLeft : 0,
-        arrayRight : [3, 12],
+        rightArray : [3, 12],
         auxRight : 3,
-        rotate : [-9, 0, 1, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [-9, 0, 1, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 15,
         number : 5,
         path : [[0, 0], [15, 0], [15, 15], [30, 0]]
@@ -261,11 +261,11 @@ const Piece = {
             'purple'
         ],
         limit : [9, 10, 11],
-        arrayLeft : [-1, 8],
+        leftArray : [-1, 8],
         auxLeft : 9,
-        arrayRight : [1, 12],
+        rightArray : [1, 12],
         auxRight : 12,
-        rotate : [0, 10, 11, 20, -1, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [0, 10, 11, 20, -1, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 17,
         number : 16,
         path : []
@@ -279,11 +279,11 @@ const Piece = {
             'purple'
         ],
         limit : [11, 20],
-        arrayLeft : [-1, 9, 19],
+        leftArray : [-1, 9, 19],
         auxLeft : 0,
-        arrayRight : [1, 12, 21],
+        rightArray : [1, 12, 21],
         auxRight : 12,
-        rotate : [9, 10, 11, 20, 0, 0, 0.1, 0.1, 0, 0, 0],
+        rotation : [9, 10, 11, 20, 0, 0, 0.1, 0.1, 0, 0, 0],
         random : 5,
         number : 17,
         path : []
@@ -297,11 +297,11 @@ const Piece = {
             'purple'
         ],
         limit : [9, 20],
-        arrayLeft : [-1, 8, 19],
+        leftArray : [-1, 8, 19],
         auxLeft : 9,
-        arrayRight : [1, 11, 21],
+        rightArray : [1, 11, 21],
         auxRight : 1,
-        rotate : [0, 9, 10, 11, -1, 0.1, 0.1, 0.1, 1, 0, 0],
+        rotation : [0, 9, 10, 11, -1, 0.1, 0.1, 0.1, 1, 0, 0],
         random : 16,
         number : 15,
         path : []
@@ -315,11 +315,11 @@ const Piece = {
             'red'
         ],
         limit : [0, 11, 12],
-        arrayLeft : [-1, 10],
+        leftArray : [-1, 10],
         auxLeft : 0,
-        arrayRight : [2, 13],
+        rightArray : [2, 13],
         auxRight : 13,
-        rotate : [-8, 1, 2, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
+        rotation : [-8, 1, 2, 11, 0, 0.1, 0.1, 0.1, 0, 0, 0],
         random : 18,
         number : 6,
         path : [[0, 0], [15, 0], [15, 15], [30, 15]]
@@ -333,11 +333,11 @@ const Piece = {
             'red'
         ],
         limit : [10, 19],
-        arrayLeft : [-1, 8, 18],
+        leftArray : [-1, 8, 18],
         auxLeft : 9,
-        arrayRight : [1, 11, 20],
+        rightArray : [1, 11, 20],
         auxRight : 1,
-        rotate : [8, 9, 19, 20, -1, -1, 0.1, 0.1, 0, 0, 0],
+        rotation : [8, 9, 19, 20, -1, -1, 0.1, 0.1, 0, 0, 0],
         random : 6,
         number : 18,
         path : []

@@ -10,13 +10,13 @@
     width: 150px;
 }
 
-#choosingLevel, #endGame{
+#choosingLevel, #gameOver{
     height: 100px;
     width: 250px;
     margin-left: 35px;
 }
 
-#choosingLevel, #endGame, #listScore{
+#choosingLevel, #gameOver, #scoreList{
     display: none;
     position: absolute;
     z-index: 1;
@@ -29,7 +29,7 @@
     color: rgb(88, 66, 3);
 }
 
-#listScore{
+#scoreList{
     background-color: rgb(178, 197, 94);
     white-space: pre-line;
     overflow-y: scroll;
@@ -39,11 +39,11 @@
     border-radius: 10px;
 }
 
-#nickName{
+#nickname{
     font-weight: bolder;
 }
 
-#endGame{
+#gameOver{
     background-color: rgb(241, 219, 146);
     height: 388px;
     padding: 0 0 0 20px;
@@ -116,14 +116,14 @@
     grid-column: 2;
 }
 
-#endButtons{
+#bottomButtons{
     display: grid;
     grid-template-columns: repeat(2, 59.5px);
     column-gap: 1px;
     row-gap: 1px;
 }
 
-#rotateButton{
+#rotationButton{
     margin-top: 10px;
     background-color: yellow;
 }
@@ -136,13 +136,13 @@
     background-color: yellowgreen;
 }
 
-#rotateButton, #leftButton, #rightButton, #downButton{
+#rotationButton, #leftButton, #rightButton, #downButton{
     font-size: xx-large;
     height: 45px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-#startButton, #stopButton, #resetButton, #rotateButton, #downButton{
+#startButton, #stopButton, #resetButton, #rotationButton, #downButton{
     grid-column-start: 1;
     grid-column-end: 2;
     width: 120px;
@@ -183,7 +183,7 @@ body #game{
     font-size: 0.9rem;
 }
 
-#titleContent{
+#contentTitle{
     height: 80px;
     font-family: 'Courier New', Courier, monospace;
 }

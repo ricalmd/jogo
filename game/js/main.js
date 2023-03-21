@@ -8,7 +8,7 @@ import {
 
 import {
     table
-} from './tableGame.js';
+} from './gameTable.js';
 
 import {
     toWork
@@ -27,14 +27,14 @@ import {
     Helper
 } from './helpers.js';
 
-function alterClass(){
+function classChange(){
     byId(Helper.num).classList.value = 'line';
     byId(Helper.num + Helper.element.arrayElement[0]).classList.value = 'line';
     byId(Helper.num + Helper.element.arrayElement[1]).classList.value = 'line';
     byId(Helper.num + Helper.element.arrayElement[2]).classList.value = 'line';
 }
 
-function choiceDisplay(){
+function displayChoice(){
     byId('choosingLevel').style.display = 'block';
     byId('choose').disabled = true;
     byId('displayScore').disabled = true;
@@ -51,10 +51,10 @@ function chooseImage(){
     }
 }
 
-async function colorGoAsync(){
+async function goesColorAsync(){
     if(Helper.rd === -1){
-        Helper.rd = aleat(elementsCounter());
-        Helper.rdf = aleat(elementsCounter());
+        Helper.rd = aleat(elementCounter());
+        Helper.rdf = aleat(elementCounter());
         chooseImage();
     }
 
@@ -62,20 +62,20 @@ async function colorGoAsync(){
     byId('displayScore').disabled = true;
 
     while(Helper.boolGame){
-        await lineScoreAsync();
+        await scoringElementAsync();
         score();
 
-        let elementsKeys = Object.keys(Piece);
+        let keysElements = Object.keys(Piece);
 
-        for(let i = 0; i < elementsKeys.length; i++){
-            if(Piece[`${elementsKeys[i]}`].number === Helper.rd){
-                Helper.element = Piece[`${elementsKeys[i]}`];
+        for(let i = 0; i < keysElements.length; i++){
+            if(Piece[`${keysElements[i]}`].number === Helper.rd){
+                Helper.element = Piece[`${keysElements[i]}`];
             }
         }
 
         let array = Helper.element.arrayElement;
 
-        Helper.helpDirection = false;
+        Helper.directionHelp = false;
 
         toWork(Helper.num, array);
         
@@ -91,7 +91,7 @@ async function colorGoAsync(){
 
 function conclusion(){
     if(limit()){
-        alterClass();
+        classChange();
 
         Helper.speed = Helper.auxSpeed;
 
@@ -106,11 +106,11 @@ function conclusion(){
 
         Helper.num = -7;
 
-        Helper.helpDirection = true;
+        Helper.directionHelp = true;
 
         Helper.rd = Helper.rdf;
 
-        Helper.rdf = aleat(elementsCounter());
+        Helper.rdf = aleat(elementCounter());
 
         chooseImage()
     }
@@ -132,8 +132,8 @@ function counter(array, numberAux){
     return confirm;
 }
 
-function countRotate(){
-    let element = Helper.element.rotate;
+function rotationCount(){
+    let element = Helper.element.rotation;
     let confirm = false;
     let auxR1 = element[element.length - 1], auxR2 = element[element.length - 2], auxR3 = element[element.length - 3];
     let auxL1 = element[element.length - 4], auxL2 = element[element.length - 5], auxL3 = element[element.length - 6];
@@ -157,13 +157,13 @@ function countRotate(){
 }
 
 function downButton(){
-    if(Helper.boolGame && !Helper.helpDirection){
+    if(Helper.boolGame && !Helper.directionHelp){
         faster();
     }
 }
 
-function downLines(element){
-    Helper.helpDirection = true;
+function goDownLines(element){
+    Helper.directionHelp = true;
     let count = 0;
 
     for(let i = 0; i < 10; i++){
@@ -178,10 +178,10 @@ function downLines(element){
         }
     }
         
-    Helper.helpDirection = false;
+    Helper.directionHelp = false;
 }
 
-function elementsCounter(){
+function elementCounter(){
     let count = 0;
     let obj = Object.keys(Piece);
 
@@ -220,7 +220,7 @@ function gameOver(){
             totalStop();
             
             if(Helper.points > first){
-                byId('endGame').style.display = 'block';
+                byId('gameOver').style.display = 'block';
             }
         }
     }
@@ -234,25 +234,25 @@ function leaveLevel(){
 }
 
 function leaveList(){
-    byId('listScore').style.display = "";
+    byId('scoreList').style.display = "";
     byId('list').textContent = "";
     Helper.startingButton = true;
 }
 
 function leaveName(){
-    byId('endGame').style.display = "";
+    byId('gameOver').style.display = "";
 
     reset();
 }
 
 function left(){
-    if(!counter(Helper.element.arrayLeft, Helper.element.auxLeft)){
+    if(!counter(Helper.element.leftArray, Helper.element.auxLeft)){
         Helper.num--;
     }
 }
 
 function leftButton(){
-    if(Helper.boolGame && !Helper.helpDirection){
+    if(Helper.boolGame && !Helper.directionHelp){
         left();
     }
 }
@@ -270,7 +270,78 @@ function limit(){
     return verif;
 }
 
-async function lineScoreAsync(){
+function reset(){
+    Helper.boolGame = false;
+    Helper.element = {};
+    Helper.num = 3;
+    Helper.rd = -1;
+    Helper.rdf = 0;
+    Helper.directionHelp = false;
+    Helper.speed = 1100;
+    Helper.auxSpeed = 1100;
+    Helper.speedBool = false;
+    Helper.startingButton = true;
+    Helper.points = 0;
+    Helper.lines = 0;
+    Helper.level = 0;
+    Helper.auxLevel = 1;
+
+    for(let i = 0; i < byTag('rect').length; i++){
+        byTag('rect')[i].classList.value = 'blocs';
+        byTag('rect')[i].style.fill = 'lightgrey';
+    }
+
+    for(let i = 0; i < byClass('displayImg').length; i++){
+        byClass('displayImg')[i].style.display = 'none';
+    }
+
+    byId('scoreText').textContent = "";
+    byId('choose').disabled = false;
+    byId('displayScore').disabled = false;
+}
+
+function resetButton(){
+    if(byId('choosingLevel').style.display === "" && byId('gameOver').style.display === "" && byId('scoreList').style.display === ""){
+        reset();
+    }
+}
+
+function right(){
+    if(!counter(Helper.element.rightArray, Helper.element.auxRight)){
+        Helper.num++;
+    }
+}
+
+function rightButton(){
+    if(Helper.boolGame && !Helper.directionHelp){
+        right();
+    }
+}
+
+function rotate(){
+    if(!rotationCount()){
+        if(Helper.element.rotation.length >= 1){
+            Helper.num += Helper.element.rotation[0];
+            Helper.rd = Helper.element.random;
+        }
+    }
+}
+
+function rotationButton(){
+    if(Helper.boolGame && !Helper.directionHelp){
+        Helper.directionHelp = true;
+        rotate();
+    }
+}
+
+function score(){
+    if(Helper.boolGame){
+        byId('scoreText').textContent = "Score:" + "\n" + (Helper.points++) + "\n" + "Lines:" + "\n" + Helper.lines + "\n" + 
+        "Level:" + "\n" + Helper.level;
+    }
+}
+
+async function scoringElementAsync(){
     let count = 0, num = 0;
     let array = [];
     let bool = false;
@@ -300,7 +371,7 @@ async function lineScoreAsync(){
         Helper.lines += array.length;
 
         for(let i = 0; i < array.length; i++){
-            downLines(array[i]);
+            goDownLines(array[i]);
 
             await sleepNow(10);
         }
@@ -309,81 +380,10 @@ async function lineScoreAsync(){
     }
 }
 
-function reset(){
-    Helper.boolGame = false;
-    Helper.element = {};
-    Helper.num = 3;
-    Helper.rd = -1;
-    Helper.rdf = 0;
-    Helper.helpDirection = false;
-    Helper.speed = 1100;
-    Helper.auxSpeed = 1100;
-    Helper.speedBool = false;
-    Helper.startingButton = true;
-    Helper.points = 0;
-    Helper.lines = 0;
-    Helper.level = 0;
-    Helper.auxLevel = 1;
-
-    for(let i = 0; i < byTag('rect').length; i++){
-        byTag('rect')[i].classList.value = 'blocs';
-        byTag('rect')[i].style.fill = 'lightgrey';
-    }
-
-    for(let i = 0; i < byClass('displayImg').length; i++){
-        byClass('displayImg')[i].style.display = 'none';
-    }
-
-    byId('textScore').textContent = "";
-    byId('choose').disabled = false;
-    byId('displayScore').disabled = false;
-}
-
-function resetButton(){
-    if(byId('choosingLevel').style.display === "" && byId('endGame').style.display === "" && byId('listScore').style.display === ""){
-        reset();
-    }
-}
-
-function right(){
-    if(!counter(Helper.element.arrayRight, Helper.element.auxRight)){
-        Helper.num++;
-    }
-}
-
-function rightButton(){
-    if(Helper.boolGame && !Helper.helpDirection){
-        right();
-    }
-}
-
-function rotate(){
-    if(!countRotate()){
-        if(Helper.element.rotate.length >= 1){
-            Helper.num += Helper.element.rotate[0];
-            Helper.rd = Helper.element.random;
-        }
-    }
-}
-
-function rotateButton(){
-    if(Helper.boolGame && !Helper.helpDirection){
-        Helper.helpDirection = true;
-        rotate();
-    }
-}
-
-function score(){
-    if(Helper.boolGame){
-        byId('textScore').textContent = "Score:" + "\n" + (Helper.points++) + "\n" + "Lines:" + "\n" + Helper.lines + "\n" + 
-        "Level:" + "\n" + Helper.level;
-    }
-}
-
 function showScoreList(){
     Helper.startingButton = false;
 
-    byId('listScore').style.display = 'block';
+    byId('scoreList').style.display = 'block';
     let array = scoreList().sort((a, b) => b.score - a.score);
 
     array.forEach(element => {
@@ -394,12 +394,12 @@ function showScoreList(){
 function startGame(){
     if(!Helper.boolGame && Helper.startingButton){
         Helper.boolGame = true;
-        colorGoAsync();
+        goesColorAsync();
     }
 }
 
 function stopGame(){
-    if(Helper.boolGame && byId('choosingLevel').style.display === "" && byId('listScore').style.display === "" && byId('endGame').style.display === ""){
+    if(Helper.boolGame && byId('choosingLevel').style.display === "" && byId('scoreList').style.display === "" && byId('gameOver').style.display === ""){
         Helper.boolGame = false;
         byId('displayScore').disabled = false;
     }
@@ -423,8 +423,8 @@ function submitName(){
     if(!byId('name').value){
         alert('If you want to record your score, please enter your nickname');
     }else{
-        byId('endGame').style.display = "";
-        text = byId('name').value + "\n" + byId('textScore').textContent;
+        byId('gameOver').style.display = "";
+        text = byId('name').value + "\n" + byId('scoreText').textContent;
         createList(text);
 
         reset();
@@ -441,26 +441,26 @@ window.onload = table();
 window.addEventListener("keydown", function(e) {
     if(e.key === "Enter" && !Helper.boolGame && Helper.startingButton){
         Helper.boolGame = true;
-        colorGoAsync();
-    }else if(e.key === "Shift" && Helper.boolGame && byId('choosingLevel').style.display === "" && byId('listScore').style.display === "" && byId('endGame').style.display === ""){
+        goesColorAsync();
+    }else if(e.key === "Shift" && Helper.boolGame && byId('choosingLevel').style.display === "" && byId('scoreList').style.display === "" && byId('gameOver').style.display === ""){
         Helper.boolGame = false;
         byId('displayScore').disabled = false;
-    }else if(e.key === "ArrowLeft" && Helper.boolGame && !Helper.helpDirection){
+    }else if(e.key === "ArrowLeft" && Helper.boolGame && !Helper.directionHelp){
         left();
-    }else if(e.key === "ArrowRight" && Helper.boolGame && !Helper.helpDirection){
+    }else if(e.key === "ArrowRight" && Helper.boolGame && !Helper.directionHelp){
         right();
-    }else if(e.key === " " && Helper.boolGame && !Helper.helpDirection){
-        Helper.helpDirection = true;
+    }else if(e.key === " " && Helper.boolGame && !Helper.directionHelp){
+        Helper.directionHelp = true;
         rotate();
-    }else if(e.key === "ArrowDown" && Helper.boolGame && !Helper.helpDirection){
+    }else if(e.key === "ArrowDown" && Helper.boolGame && !Helper.directionHelp){
         faster();
-    }else if(e.key === "Backspace" && byId('choosingLevel').style.display === "" && byId('endGame').style.display === "" && byId('listScore').style.display === ""){
+    }else if(e.key === "Backspace" && byId('choosingLevel').style.display === "" && byId('gameOver').style.display === "" && byId('scoreList').style.display === ""){
         reset();
     }
 });
 
 window.addEventListener('load', function() {
-    byId('choose').addEventListener("click", choiceDisplay);
+    byId('choose').addEventListener("click", displayChoice);
     byId('leave').addEventListener("click", leaveLevel);
     byId('submitLevel').addEventListener("click", submitLevel);
     byId('displayScore').addEventListener("click", showScoreList);
@@ -470,7 +470,7 @@ window.addEventListener('load', function() {
     byId('startButton').addEventListener("click", startGame);
     byId('stopButton').addEventListener("click", stopGame);
     byId('resetButton').addEventListener("click", resetButton);
-    byId('rotateButton').addEventListener("click", rotateButton);
+    byId('rotationButton').addEventListener("click", rotationButton);
     byId('leftButton').addEventListener("click", leftButton);
     byId('rightButton').addEventListener("click", rightButton);
     byId('downButton').addEventListener("click", downButton);
