@@ -117,19 +117,21 @@
 }
 
 #bottomButtons{
-    display: grid;
     grid-template-columns: repeat(2, 59.5px);
+}
+
+#bottomButtons, #directionButtons{
+    display: grid;
     column-gap: 1px;
     row-gap: 1px;
 }
 
 #rotationButton{
-    margin-top: 10px;
     background-color: yellow;
 }
 
 #leftButton, #rightButton{
-    background-color: orange;
+    background-color: rgb(158, 131, 81);
 }
 
 #downButton{
@@ -145,7 +147,14 @@
 #startButton, #stopButton, #resetButton, #rotationButton, #downButton{
     grid-column-start: 1;
     grid-column-end: 2;
+}
+
+#startButton, #stopButton, #resetButton{
     width: 120px;
+}
+
+#rotationButton, #downButton{
+    width: 150px;
 }
 
 #buttons{
@@ -181,10 +190,11 @@ body #game{
 
 #choose, #displayScore, #startButton, #stopButton, #resetButton{
     font-size: 0.9rem;
+    height: 50px;
 }
 
 #contentTitle{
-    height: 80px;
+    height: 65px;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -194,4 +204,9 @@ body #game{
     -moz-transform: matrix(-1, 0, 0, 1, 0, 0);
     -o-transform: matrix(-1, 0, 0, 1, 0, 0);
     transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+#directionButtons{
+    grid-template-columns: repeat(2, 75px);
+    margin-bottom: 5px;
 }

@@ -29,6 +29,7 @@ function table(){
     const displayScoreList = create('div');
     const tableAndTitle = create('div');
     const list = create('div');
+    const directionButtons = create('div');
     let x = 0, y = 0, name = 0;
     for(let i = 0; i < 11; i++){
         let rect = createNS('rect');
@@ -89,15 +90,16 @@ function table(){
     contentButtons.appendChild(displayScore);
     title.id = 'contentTitle';
     bottomButtonsContent.id = 'bottomButtons';
+    directionButtons.id = 'directionButtons';
     bottomButtonsContent.appendChild(levelButton);
     bottomButtonsContent.appendChild(displayButton);
     bottomButtonsContent.appendChild(startButton);
     bottomButtonsContent.appendChild(stopButton);
     bottomButtonsContent.appendChild(resetButton);
-    bottomButtonsContent.appendChild(rotationButton);
-    bottomButtonsContent.appendChild(leftButton);
-    bottomButtonsContent.appendChild(rightButton);
-    bottomButtonsContent.appendChild(downButton);
+    directionButtons.appendChild(leftButton);
+    directionButtons.appendChild(rightButton);
+    directionButtons.appendChild(rotationButton);
+    directionButtons.appendChild(downButton);
     contentButtons.appendChild(bottomButtonsContent);
     gameOver.id = 'gameOver';
     gameOver.innerHTML = "<h1>New Record!</h1><p>Enter a nickname</p><input type='text' id='name'><br><input type='button' value='Submit' id='nameSubmit'><input type='button' value='Back' id='leaveName'>";
@@ -107,6 +109,7 @@ function table(){
     tableAndTitle.id = "tableAndTitle";
     tableAndTitle.appendChild(title);
     tableAndTitle.appendChild(table);
+    tableAndTitle.appendChild(directionButtons);
     displayScoreList.appendChild(list);
     game.appendChild(contentButtons);
     game.appendChild(tableAndTitle);
