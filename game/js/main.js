@@ -1,7 +1,7 @@
 import {
     byId,
     byTag,
-    sleepNow,
+    timeOut,
     aleat,
     byClass
 } from './utils.js';
@@ -85,7 +85,7 @@ async function goesColorAsync(){
 
         Helper.num += 10;
 
-        await sleepNow(Helper.speed);
+        await timeOut(Helper.speed);
     }
 }
 
@@ -373,7 +373,7 @@ async function scoringElementAsync(){
         for(let i = 0; i < array.length; i++){
             goDownLines(array[i]);
 
-            await sleepNow(10);
+            await timeOut(10);
         }
 
         Helper.boolGame = true;

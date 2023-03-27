@@ -5,8 +5,10 @@ import {
     createNS
 } from './utils.js';
 
-//Método que permite exportar todos os elementos DOM. Deste modo, só é preciso criar no documento HTML uma div
-//com o id game
+/**
+ * Method that allows exporting all DOM elements. In this way, it is only necessary to create a div in the HTML document
+ * with id "game"
+ */
 function table(){
     const game = byId('game');
     const table = createNS('svg');
