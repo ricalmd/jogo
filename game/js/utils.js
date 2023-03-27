@@ -1,9 +1,19 @@
 'use strict';
 
-//Instancia uma Promise
-const sleepNow = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
+/**
+ * Instantiate a Promise
+ * 
+ * @param {*} delay 
+ * @returns 
+ */
+const timeOut = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 
-//Como se usa mais do que uma vez, não tem de se estar sempre a escrever. O mesmo para os métodos seguintes
+/**
+ * To don't have to write the same code all the time. Same for the following methods
+ * 
+ * @param {*} num 
+ * @returns 
+ */
 function aleat(num){
     return Math.floor(Math.random() * num);
 }
@@ -32,7 +42,7 @@ export{
     byId,
     byClass,
     byTag,
-    sleepNow,
+    timeOut,
     create,
     createNS,
     aleat
