@@ -1,3 +1,7 @@
+/**
+ * Object that contains all the variables necessary for the game
+ */
+
 const Helper = { 
     boolGame : false, 
     element : {}, 
